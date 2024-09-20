@@ -1,30 +1,51 @@
-def sum_of_squares(numbers, index=0, total=0):
-    if index == len(numbers):
-        return total
-    current = numbers[index]
-    if current >= 0:
-        total += current ** 2
-    return sum_of_squares(numbers, index + 1, total)
-
-def process_test_cases(test_cases, index=0, results=[]):
-    if index == len(test_cases):
-        return results
-    _, numbers = test_cases[index]
-    results.append(sum_of_squares(numbers))
-    return process_test_cases(test_cases, index + 1, results)
-
-def collect_test_cases(n, test_cases=[], index=0):
-    if index == n:
-        return test_cases
-    x = int(input())  # Number of integers in the test case
-    numbers = list(map(int, input().split()))  # Space-separated integers
-    return collect_test_cases(n, test_cases + [(x, numbers)], index + 1)
-
 def main():
-    n = int(input())  # Number of test cases
-    test_cases = collect_test_cases(n)  # Collect all test cases recursively
-    results = process_test_cases(test_cases)  # Process test cases to get the results
-    print("\n".join(map(str, results)))  # Output all results
+
+    # get number of cases
+    caseNo = int(input())
+    sums = []
+    sums = (caseRecurse(caseNo, sums))
+    printSums(caseNo, sums, 0)
+
+
+def caseRecurse(caseNo, sumList):
+    if (caseNo == 0):
+        return sumList
+
+    # get number of integers
+    integerNo = int(input())
+
+    # parse by removing " "'s
+    numbers = input().split()
+
+    # recurse through numbers list and add to sums list
+    sum = (squareSum(integerNo - 1, numbers, 0))
+    sumList.append(sum)
+
+    return (caseRecurse(caseNo - 1, sumList))
+
+
+def squareSum(integerNo, numbers, currentSum):
+    if (integerNo < 0):
+        return currentSum
+
+    elif (int(numbers[integerNo]) >= 0):  # check if positive
+        # square, add to running total
+        currentSum += int(numbers[integerNo]) ** 2
+        return squareSum(integerNo - 1, numbers, currentSum)
+
+    else:
+        return squareSum(integerNo - 1, numbers, currentSum)
+
+# must print recursively to match output example
+
+
+def printSums(caseNo, sumList, counter):
+    if (counter == caseNo):
+        return
+    else:
+        print(sumList[counter])
+        return printSums(caseNo, sumList, counter + 1)
+
 
 if __name__ == "__main__":
     main()
