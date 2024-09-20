@@ -20,10 +20,11 @@ You may only use standard library packages. In addition, extra point is awarded 
 
 Specific rules for Python solution
 
-`Your source code must be a single file, containing at least a main function
+````Your source code must be a single file, containing at least a main function
 Do not use any for loop, while loop, or any list / set / dictionary comprehension
-Your solution will be tested against Python 3.11 (as of February 2023) or higher`
+Your solution will be tested against Python 3.11 (as of February 2023) or higher```
 
 `Sample Input: 2 4 3 -1 1 14 5 9 6 -53 32 16`
 
 `Sample Output: 206 1397`
+````
