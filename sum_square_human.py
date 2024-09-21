@@ -28,7 +28,8 @@ def squareSum(integerNo, numbers, currentSum):
     if (integerNo < 0):
         return currentSum
 
-    elif (int(numbers[integerNo]) >= 0):  # check if positive
+    # Check if integerNo is within the bounds of the numbers list
+    if integerNo < len(numbers) and int(numbers[integerNo]) >= 0:  # check if positive
         # square, add to running total
         currentSum += int(numbers[integerNo]) ** 2
         return squareSum(integerNo - 1, numbers, currentSum)
