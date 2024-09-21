@@ -23,8 +23,10 @@ def collect_test_cases(n, test_cases=None, index=0):
     # Base case: if the index reaches the number of test cases, return the collected test cases
     if index == n:
         return test_cases
+    
     x = int(input("Enter the number of integers in the test case: "))  # Number of integers
-    numbers = list(map(int, input("Enter the space-separated integers: ").split()))  # Read integers
+    input_string = input("Enter the space-separated integers: ")  # Read input as a string
+    numbers = list(map(int, input_string.split()))  # Convert the input string to a list of integers
     return collect_test_cases(n, test_cases + [(x, numbers)], index + 1)  # Recursive call to collect more test cases
 
 def main():
