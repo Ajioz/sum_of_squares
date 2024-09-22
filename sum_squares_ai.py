@@ -1,4 +1,4 @@
-def collect_test_cases(n, test_cases=None, index=0):
+def takeTestCase(n, test_cases=None, index=0):
     if test_cases is None:
         test_cases = []  # Initialize test cases list if not provided
     # Base case: if the index reaches the number of test cases, return the collected test cases
@@ -8,7 +8,7 @@ def collect_test_cases(n, test_cases=None, index=0):
     x = int(input("Enter the number of integers in the test case: "))  # Number of integers
     input_string = input("Enter the space-separated integers: ")  # Read input as a string
     numbers = list(map(int, input_string.split()))  # Convert the input string to a list of integers
-    return collect_test_cases(n, test_cases + [(x, numbers)], index + 1)  # Recursive call to collect more test cases
+    return takeTestCase(n, test_cases + [(x, numbers)], index + 1)  # Recursive call to collect more test cases
 
 
 def process_test_cases(test_cases, index=0, results=None):
@@ -34,7 +34,7 @@ def sum_of_squares(numbers, index=0, total=0):
 
 def main():
     n = int(input("Enter the number of test cases: "))  # Read number of test cases
-    test_cases = collect_test_cases(n)  # Collect all test cases recursively
+    test_cases = takeTestCase(n)  # Collect all test cases recursively
     results = process_test_cases(test_cases)  # Process test cases to get the results
     print("\n".join(map(str, results)))  # Output all results
 
