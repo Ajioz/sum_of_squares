@@ -4,26 +4,30 @@ def input_capture(number_of_iteration, index=0, testCaseList=[]):
     if(index == number_of_iteration):
         return testCaseList
     
-    depth_of_sum = int(input("Enter size of iterable: "))
+    #Get the weight of the iteration, which would be used to detemine how deep to sum numbers
+    depth_of_sum = int(input("Enter size of iterable: ")) 
+    # now collect user numbers list separated by comma  
     numbers = input("Enter list of numbers, separated by spaces: ")
     
+    # using list comprehension to gets list of numbers
     iterable = [int(i) for i in numbers.split()]
+    # make it into tuple to capture weight
     testCaseList.append((depth_of_sum, iterable))
     
     # Recursive call to the next test case
     return input_capture(number_of_iteration, index + 1, testCaseList)
     
     
-def sum_square(myList, weight, index=0, result=0):
+def sum_square(numCollection, weight, index=0, cumulative=0):
     # Establish a base case for recursion termination
-    if(index == len(myList)):
-        return result
+    if(index == len(numCollection)):
+        return cumulative
     
-    if(myList[index] > 0 and index <= (weight-1)):
-        result += myList[index] ** 2
+    if(numCollection[index] > 0 and index <= (weight-1)):
+        cumulative += numCollection[index] ** 2
     
     # print(f'this is weight: {weight}')
-    return sum_square(myList, weight, index+1, result)
+    return sum_square(numCollection, weight, index+1, cumulative)
     
 
 def process_capture(testCaseList, index=0, result=[]):
