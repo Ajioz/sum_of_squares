@@ -16,6 +16,7 @@ def input_capture(number_of_iteration, index=0, testCaseList=[]):
     # Recursive call to the next test case
     return input_capture(number_of_iteration, index + 1, testCaseList)
     
+    
 def sum_square(myList, index=0, result=0):
     # Establish a base case for recursion termination
     if(index == len(myList)):
@@ -34,9 +35,10 @@ def process_capture(testCaseList, index=0, result=[]):
     
 
     weight, numbers = testCaseList
-    print(weight, numbers)
+    total = sum_square(numbers)
+    result.append(total)
     
-    return process_capture(testCaseList, index + 1, )
+    return process_capture(testCaseList, index + 1, result)
 
 
 def main():
