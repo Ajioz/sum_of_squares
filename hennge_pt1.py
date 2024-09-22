@@ -23,7 +23,8 @@ def sum_square(myList, index=0, result=0):
         return result
     
     if(myList[index] > 0):
-        result =+ myList[index] **2
+        result += myList[index] ** 2
+    
     
     return sum_square(myList, index+1, result)
     
@@ -34,7 +35,8 @@ def process_capture(testCaseList, index=0, result=[]):
         return result
     
 
-    weight, numbers = testCaseList
+    weight, numbers = testCaseList[index]
+    print(f'numbers: {numbers}')
     total = sum_square(numbers)
     result.append(total)
     
