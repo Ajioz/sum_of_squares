@@ -14,15 +14,15 @@ def input_capture(number_of_iteration, index=0, testCaseList=[]):
     return input_capture(number_of_iteration, index + 1, testCaseList)
     
     
-def sum_square(weight, myList, index=0, result=0):
+def sum_square(myList, weight, index=0, result=0):
     # Establish a base case for recursion termination
     if(index == len(myList)):
         return result
     
-    if(myList[index] > 0 and index < weight):
+    if(myList[index] > 0 and index <= 4):
         result += myList[index] ** 2
     
-    
+    print(f'this is weight: {weight}')
     return sum_square(myList, index+1, result)
     
 
@@ -33,7 +33,8 @@ def process_capture(testCaseList, index=0, result=[]):
     
 
     weight, numbers = testCaseList[index]
-    total = sum_square(weight, numbers)
+    print(f'weight is: {weight}, numbers are: {numbers}')
+    total = sum_square(numbers, weight)
     result.append(total)
     
     return process_capture(testCaseList, index + 1, result)
