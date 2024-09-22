@@ -19,11 +19,11 @@ def sum_square(myList, weight, index=0, result=0):
     if(index == len(myList)):
         return result
     
-    if(myList[index] > 0 and index <= 4):
+    if(myList[index] > 0 and index <= (weight-1)):
         result += myList[index] ** 2
     
-    print(f'this is weight: {weight}')
-    return sum_square(myList, index+1, result)
+    # print(f'this is weight: {weight}')
+    return sum_square(myList, weight, index+1, result)
     
 
 def process_capture(testCaseList, index=0, result=[]):
