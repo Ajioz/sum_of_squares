@@ -17,4 +17,10 @@ def stringToList(word, index=0, myList=[]):
 
 print(stringToList("Hello"))
 print(list("Smile"))
+
+{
+  "github_url": "https://gist.github.com/Ajioz/6b4f6cd094c4390fa12e908bdec30cb3.js",
+  "contact_email": "sunny.ajiroghene@gmail.com",
+  "solution_language": "python"
+}
     
